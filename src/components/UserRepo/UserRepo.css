@@ -1,0 +1,29 @@
+.repo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+
+  background-color: #fff;
+  border-radius: 6px;
+  margin-right: 56px;
+  height: 112px;
+  padding: 0 32px;
+}
+
+.repo-container a {
+  color: #0064EB;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.repo-container p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  max-height: 19px;
+  overflow: scroll;
+}

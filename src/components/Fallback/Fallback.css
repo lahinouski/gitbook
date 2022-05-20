@@ -1,0 +1,7 @@
+.fallback-image {
+  width: 64.17px;
+  height: 64.17px;
+  background-image: url("./not-found.png");
+  background-size: cover;
+  margin-bottom: 46.92px;
+}

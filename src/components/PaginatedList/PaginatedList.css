@@ -1,0 +1,47 @@
+.repos-and-pagination-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 23.59px;
+  margin: 24px 69px 0 0;
+  font-size: 14px;
+  color: #808080;
+}
+
+.item {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 21px;
+  height: 21px;
+}
+
+.pagination {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 4px;
+}
+
+.active {
+  border-radius: 3px;
+  color: #fff;
+  background-color: #0064EB;
+}
+
+.active-angle-bracket {
+  color: #0064EB;
+}

@@ -1,0 +1,57 @@
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0 0 56px;
+  min-width: 378px;
+}
+
+.avatar {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  margin-bottom: 28px;
+}
+
+h2 {
+  height: 34px;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 130%;
+}
+
+main a {
+  display: block;
+  font-size: 18px;
+  line-height: 22px;
+  text-decoration: none;
+  color: #0064EB;
+
+  margin: 12px 0 25.26px;
+}
+
+main p {
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.sociality {
+  display: flex;
+  align-items: center;
+}
+
+.followers {
+  width: 24px;
+  height: 16px;
+  margin-right: 8px;
+  background-image: url("./followers.png");
+  background-size: cover;
+}
+
+.following {
+  width: 17px;
+  height: 17px;
+  margin-left: 24px;
+  margin-right: 8px;
+  background-image: url("./following.png");
+  background-size: cover;
+}
