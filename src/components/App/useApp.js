@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function useApp() {
   const [user, setUser] = useState({});
@@ -16,19 +16,26 @@ export default function useApp() {
         throw new Error('User not found');
       }, (networkError) => console.log(networkError.message))
       .then((jsonResponse) => {
-        console.log(jsonResponse);
+        const reposCount = jsonResponse.public_repos; // 262
+        const pagesCount = Math.ceil(reposCount / 100); // 3
+        let currentPageIndex = 0; // Decrease pagesCount instead.
+        // gaearon
+        while (currentPageIndex < pagesCount) {
+          getRepos(`${jsonResponse.repos_url}?per_page=100&page=${currentPageIndex}`);
+          currentPageIndex++;
+        }
+
         setUser(jsonResponse);
-        getRepos(jsonResponse.repos_url + '?per_page=100');
       }, (error) => {
         setNotFound(true);
-        // alert(error);
+        console.log(error);
       });
   }
 
   function getRepos(url) {
     fetch(url)
       .then((res) => res.json())
-      .then((jsonResponse) => setRepos(jsonResponse));
+      .then((jsonResponse) => setRepos(repos.concat(jsonResponse)));
   }
 
 

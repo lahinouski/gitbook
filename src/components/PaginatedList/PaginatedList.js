@@ -4,7 +4,7 @@ import helperFunctions from '../../util/helperFunctions';
 import { UserRepoList } from '../';
 import './PaginatedList.css';
 
-export default function PaginatedList({ repos }) {
+export default function PaginatedList({ repos, reposCount }) {
   const { calculatePaginationComment } = helperFunctions;
   const [currentRepos, setCurrentRepos] = useState([]);
   const [pageCount, setPageCount] = useState(0);
@@ -13,24 +13,19 @@ export default function PaginatedList({ repos }) {
   useEffect(() => {
     const endOffset = itemOffset + 4;
     setCurrentRepos(repos.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(repos.length / 4));
-    // return () => {
-    //   setCurrentRepos(repos.slice(0, 4));
-    //   // setPageCount(0);
-    //   // setItemOffset(0);
-    // }
+    setPageCount(Math.ceil(reposCount / 4));
   });
 
   function handlePageClick(event) {
-    const newOffset = (event.selected * 4) % repos.length;
+    const newOffset = (event.selected * 4) % reposCount;
     setItemOffset(newOffset);
   }
 
   return (
     <div className="repos-and-pagination-container">
-      <UserRepoList currentRepos={currentRepos} reposCount={repos.length} />
+      <UserRepoList currentRepos={currentRepos} reposCount={reposCount} />
       <div className="pagination-container">
-        <p>{calculatePaginationComment(itemOffset, repos.length)}</p>
+        <p>{calculatePaginationComment(itemOffset, reposCount)}</p>
         <ReactPaginate
           pageRangeDisplayed={2}
           previousLabel="<"

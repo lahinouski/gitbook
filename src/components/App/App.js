@@ -15,7 +15,7 @@ export default function App() {
             <Index /> :
             <div className="content-container">
               <UserInfo user={user} />
-              <PaginatedList repos={repos} />
+              <PaginatedList repos={repos} reposCount={user.public_repos} />
             </div>
       }
     </div>
