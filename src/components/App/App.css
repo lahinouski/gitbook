@@ -1,7 +1,7 @@
 @import url('https://rsms.me/inter/inter.css');
 
 html {
-  font-family: 'Inter', sans-serif;
+  background-color: #E5E5E5;
 }
 
 @supports (font-variation-settings: normal) {
@@ -10,23 +10,10 @@ html {
   }
 }
 
-html {
-  background-color: #E5E5E5;
-}
-
 .content-container {
   display: flex;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 @media only screen and (max-width: 800px) {
   .content-container {

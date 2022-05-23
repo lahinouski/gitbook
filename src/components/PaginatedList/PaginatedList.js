@@ -6,9 +6,13 @@ import './PaginatedList.css';
 
 export default function PaginatedList({ getRepos, user, repos, forseIndexPage }) {
   const { calculatePaginationComment } = helperFunctions;
+  const reposCount = user.public_repos;
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const reposCount = user.public_repos;
+
+  useEffect(() => {
+    setItemOffset(0);
+  }, [user]);
 
   useEffect(() => {
     setPageCount(Math.ceil(reposCount / 4));
@@ -24,7 +28,7 @@ export default function PaginatedList({ getRepos, user, repos, forseIndexPage })
     <div className="repos-and-pagination-container">
       <UserRepoList currentRepos={repos} reposCount={reposCount} />
       <div className="pagination-container">
-        <p>{repos.length ? calculatePaginationComment(itemOffset, reposCount) : null}</p>
+        <p>{calculatePaginationComment(itemOffset, reposCount)}</p>
         <ReactPaginate
           forcePage={forseIndexPage && 0}
           marginPagesDisplayed={1}

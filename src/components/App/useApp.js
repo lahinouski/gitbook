@@ -9,10 +9,10 @@ export default function useApp() {
 
   function searchUser(event, searchTerm) {
     event.preventDefault();
-    setForseIndexPage(true);
+    setRepos([]);
     setLoading(true);
     setNotFound(false);
-    setRepos([]);
+    setForseIndexPage(true);
     fetch(`https://api.github.com/users/${searchTerm}`)
       .then((response) => {
         if (response.ok) {
@@ -26,8 +26,8 @@ export default function useApp() {
         setLoading(false);
       }, (error) => {
         console.log(error);
-        setNotFound(true);
         setLoading(false);
+        setNotFound(true);
       });
   }
 
@@ -40,7 +40,6 @@ export default function useApp() {
         setLoading(false);
         setForseIndexPage(false);
       });
-
   }
 
   return { searchUser, getRepos, user, repos, notFound, loading, forseIndexPage };

@@ -10,7 +10,7 @@ const helperFunctions = {
     const from = offset + 1;
     const to = (offset + 4) > reposCount ? reposCount : (offset + 4);
 
-    return `${from}-${to} of ${reposCount} items`;
+    return reposCount ? `${from}-${to} of ${reposCount} items` : null;
   }
 };
 
