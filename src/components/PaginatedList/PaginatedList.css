@@ -8,8 +8,9 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  flex-wrap: wrap-reverse;
   gap: 23.59px;
-  margin: 24px 69px 0 0;
+  margin: 24px 69px 36px 0;
   font-size: 14px;
   color: #808080;
 }
@@ -44,4 +45,13 @@
 
 .active-angle-bracket {
   color: #0064EB;
+}
+
+@media only screen and (max-width: 790px) {
+  .pagination-container {
+    max-width: 80%;
+    gap: 10px;
+    margin: 24px auto 36px;
+    justify-content: center;
+  }
 }

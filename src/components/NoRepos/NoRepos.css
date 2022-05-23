@@ -1,0 +1,12 @@
+.no-repos-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 22%;
+}
+
+.no-repos-image {
+  width: 243px;
+  height: 165px;
+  background-image: url("./no-repos.png");
+  background-size: cover;
+}

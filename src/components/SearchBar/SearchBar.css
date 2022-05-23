@@ -1,8 +1,10 @@
 header {
-  height: 72px;
-  background-color: #0064EB;
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
+  height: 72px;
+  background-color: #0064EB;
 }
 
 .logo {
@@ -12,6 +14,12 @@ header {
   margin: 0 22.02px 0 41px;
   background-image: url("./logo.png");
   background-size: cover;
+}
+
+.logo:hover {
+  cursor: pointer;
+  background-color: #0064EB;
+  opacity: .775;
 }
 
 .search-bar {
@@ -52,4 +60,53 @@ input {
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.01em;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 360px) {
+  form {
+    width: 180px;
+  }
+
+  .search-bar {
+    width: 200px;
+  }
+
+  input {
+    width: 150px;
+  }
+
+  .logo {
+    margin: 0;
+    /* margin: 0 22.02px 0 41px; */
+  }
+
+  header {
+    align-items: center;
+    justify-content: center;
+    gap: 22.02px;
+  }
+}
+
+@media only screen and (min-width: 370px) and (max-width: 790px) {
+  form {
+    width: 240px;
+  }
+
+  .search-bar {
+    width: 260px;
+  }
+
+  input {
+    width: 210px;
+  }
+
+  .logo {
+    margin: 0;
+  }
+
+  header {
+    align-items: center;
+    justify-content: center;
+    gap: 22.02px;
+  }
 }

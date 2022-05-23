@@ -17,3 +17,21 @@ html {
 .content-container {
   display: flex;
 }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .content-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

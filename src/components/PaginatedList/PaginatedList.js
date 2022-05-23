@@ -1,40 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import helperFunctions from '../../util/helperFunctions';
 import { UserRepoList } from '../';
 import './PaginatedList.css';
 
-export default function PaginatedList({ repos, reposCount }) {
+export default function PaginatedList({ getRepos, user, repos, forseIndexPage }) {
   const { calculatePaginationComment } = helperFunctions;
-  const [currentRepos, setCurrentRepos] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
+  const reposCount = user.public_repos;
 
   useEffect(() => {
-    const endOffset = itemOffset + 4;
-    setCurrentRepos(repos.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(reposCount / 4));
-  });
+  }, [reposCount]);
 
   function handlePageClick(event) {
+    getRepos(user, event.selected + 1);
     const newOffset = (event.selected * 4) % reposCount;
     setItemOffset(newOffset);
   }
 
   return (
     <div className="repos-and-pagination-container">
-      <UserRepoList currentRepos={currentRepos} reposCount={reposCount} />
+      <UserRepoList currentRepos={repos} reposCount={reposCount} />
       <div className="pagination-container">
-        <p>{calculatePaginationComment(itemOffset, reposCount)}</p>
+        <p>{repos.length ? calculatePaginationComment(itemOffset, reposCount) : null}</p>
         <ReactPaginate
+          forcePage={forseIndexPage && 0}
+          marginPagesDisplayed={1}
           pageRangeDisplayed={2}
           previousLabel="<"
           nextLabel=">"
           onPageChange={handlePageClick}
           pageCount={pageCount}
-          // Fallback UI ???
           renderOnZeroPageCount={null}
-
           containerClassName="pagination"
           activeClassName="item active"
           previousClassName={`item previous ${itemOffset && "active-angle-bracket"}`}

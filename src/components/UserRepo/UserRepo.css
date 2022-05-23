@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: flex-start;
   gap: 16px;
-
   background-color: #fff;
   border-radius: 6px;
   margin-right: 56px;
@@ -25,5 +24,11 @@
   font-size: 16px;
   line-height: 19px;
   max-height: 19px;
-  overflow: scroll;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 800px) {
+  .repo-container {
+    margin: 0 5%;
+  }
 }

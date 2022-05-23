@@ -1,21 +1,27 @@
 import React from 'react';
-import { SearchBar, UserInfo, PaginatedList, Index, Fallback } from '../';
+import { SearchBar, UserInfo, PaginatedList, Index, Fallback, Loader } from '../';
 import useApp from './useApp';
 import './App.css';
 
 export default function App() {
-  const { searchUser, user, repos, notFound } = useApp();
+  const { searchUser, getRepos, user, repos, notFound, loading, forseIndexPage } = useApp();
+  const foundUser = user.id;
 
   return (
     <div className="app">
+      {loading && <Loader />}
       <SearchBar onSubmitForm={searchUser} />
       {
         notFound ? <Fallback /> :
-          !user.id ?
+          !foundUser ?
             <Index /> :
             <div className="content-container">
               <UserInfo user={user} />
-              <PaginatedList repos={repos} reposCount={user.public_repos} />
+              <PaginatedList
+                user={user}
+                repos={repos}
+                forseIndexPage={forseIndexPage}
+                getRepos={getRepos} />
             </div>
       }
     </div>

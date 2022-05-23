@@ -6,12 +6,11 @@ export default function SearchBar({ onSubmitForm }) {
 
   return (
     <header>
-      <span className="logo" />
+      <span className="logo" onClick={() => window.open("https://github.com/lahinouski", "_blank")} />
       <div className="search-bar">
         <form onSubmit={(event) => onSubmitForm(event, searchTerm)}>
           <button className="submit-button" type="submit" />
           <input
-            placeholder="Enter a GitHub username"
             type="text"
             value={searchTerm}
             onChange={(event) => setSearchTerm(event.target.value)}

@@ -1,0 +1,46 @@
+.loader-container {
+  position: absolute;
+  z-index: 1;
+  background-color: #E5E5E5;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  height: 100%;
+  margin: auto 0;
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #0064EB;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .loader-container {
+    height: 300%;
+  }
+}
+
+@media only screen and (min-width: 380px) and (max-width: 790px) {
+  .loader-container {
+    height: 180%;
+  }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 379px) {
+  .loader-container {
+    height: 220%;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .loader-container {
+    height: 280%;
+  }
+}
