@@ -33,10 +33,10 @@ export default function PaginatedList({ getRepos, user, repos, forseIndexPage })
           forcePage={forseIndexPage && 0}
           marginPagesDisplayed={1}
           pageRangeDisplayed={2}
-          previousLabel={reposCount > 4 && "<"}
-          nextLabel={reposCount > 4 && ">"}
-          onPageChange={handlePageClick}
           pageCount={reposCount > 4 && pageCount}
+          nextLabel={reposCount > 4 && ">"}
+          previousLabel={reposCount > 4 && "<"}
+          onPageChange={handlePageClick}
           renderOnZeroPageCount={null}
           containerClassName="pagination"
           activeClassName="item active"
