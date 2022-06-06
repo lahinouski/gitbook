@@ -13,8 +13,7 @@ export default function App() {
       <SearchBar onSubmitForm={searchUser} />
       {
         notFound ? <Fallback /> :
-          !foundUser ?
-            <Index /> :
+          !foundUser ? <Index /> :
             <div className="content-container">
               <UserInfo user={user} />
               <PaginatedList

@@ -26,19 +26,19 @@ export default function useApp() {
         setLoading(false);
       }, (error) => {
         console.log(error);
-        setLoading(false);
         setNotFound(true);
+        setLoading(false);
       });
   }
 
   function getRepos(user, pageIndex) {
     setLoading(true);
     fetch(`${user.repos_url}?per_page=4&page=${pageIndex}`)
-      .then((res) => res.json())
+      .then((response) => response.json())
       .then((jsonResponse) => {
         setRepos(jsonResponse)
-        setLoading(false);
         setForseIndexPage(false);
+        setLoading(false);
       });
   }
 
